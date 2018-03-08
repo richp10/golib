@@ -3,9 +3,8 @@ package sendemail
 import (
 	"github.com/richp10/golib/email/emailfactory"
 	"github.com/richp10/golib/email/smtpconnect"
-
 	log "github.com/sirupsen/logrus"
-
+	"github.com/go-mail/mail"
 	"github.com/matcornic/hermes"
 	"github.com/spf13/viper"
 )
@@ -21,7 +20,7 @@ func Send(from string, to string, subject string, body hermes.Email, conn mail.S
 	if conn == nil {
 		conn, err = smtpconnect.InitSMTP()
 		if err != nil {
-			log.Error("sendemail.Send: "+err.Error())
+			log.Error("sendemail.Send: " + err.Error())
 			return err
 		}
 	}
