@@ -5,10 +5,10 @@
 package spatial
 
 import (
-"bytes"
-"io"
-"log"
-"math"
+	"bytes"
+	"io"
+	"log"
+	"math"
 )
 
 func Decode(points string, precision int) []Point {

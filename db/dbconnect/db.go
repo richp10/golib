@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Janulka/dat"
-	"github.com/Janulka/dat/sqlx-runner"
+	"github.com/richp10/dat"
+	"github.com/richp10/dat/sqlx-runner"
 
 	_ "github.com/lib/pq"
 	"github.com/spf13/viper"

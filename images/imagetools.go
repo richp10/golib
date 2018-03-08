@@ -1,4 +1,4 @@
-// Convenience functions for our image manipulation tools
+// Convenience wrapper for our image manipulation tools
 package imagetools
 
 import (

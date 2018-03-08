@@ -1,5 +1,6 @@
 // Circle crop a square image with transparency
 // From https://blog.golang.org/go-imagedraw-package
+// Golang BSD Licensed code snippet
 package circlecrop
 
 import (

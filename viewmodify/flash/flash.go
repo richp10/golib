@@ -18,7 +18,7 @@ import (
 // Modify adds the flashes to the view.
 func Modify(w http.ResponseWriter, r *http.Request, v *view.ViewInfo) {
 	c := flight.Context(w, r)
-
+	// TODO REMOVE flight dependency
 	// Get the flashes for the template
 	if flashes := c.Sess.Flashes(); len(flashes) > 0 {
 		v.Vars["flashes"] = make([]flashlib.Info, len(flashes))

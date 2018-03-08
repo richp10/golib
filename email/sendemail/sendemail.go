@@ -6,7 +6,6 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/go-mail/mail"
 	"github.com/matcornic/hermes"
 	"github.com/spf13/viper"
 )
