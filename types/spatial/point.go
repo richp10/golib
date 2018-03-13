@@ -58,6 +58,8 @@ func (p Point) Value() (driver.Value, error) {
 	return p.String(), nil
 }
 
+// Same thing but Null
+
 type NullPoint struct {
 	Point Point
 	Valid bool

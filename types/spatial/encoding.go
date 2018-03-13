@@ -7,7 +7,7 @@ package spatial
 import (
 	"bytes"
 	"io"
-	"log"
+	log "github.com/sirupsen/logrus"
 	"math"
 )
 
