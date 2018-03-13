@@ -1,4 +1,4 @@
-package emailvalid
+package emailvalid_test
 
 import (
 	"os/exec"

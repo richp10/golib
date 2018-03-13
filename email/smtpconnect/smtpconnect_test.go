@@ -1,14 +1,14 @@
-package smtpconnect
+package smtpconnect_test
 
 import (
 	"os"
 	"os/exec"
 	"testing"
-
 	"github.com/richp10/golib/env"
+	"github.com/spf13/viper"
+	"github.com/richp10/golib/email/smtpconnect"
 
 	. "github.com/smartystreets/goconvey/convey"
-	"github.com/spf13/viper"
 )
 
 func TestSMTPConnection(t *testing.T) {
@@ -21,7 +21,7 @@ func TestSMTPConnection(t *testing.T) {
 		})
 
 		Convey("Should create SMTP connection", func() {
-			_, err := InitSMTP()
+			_, err := smtpconnect.InitSMTP()
 			So(err, ShouldBeNil)
 		})
 
@@ -44,7 +44,6 @@ func TestMegaChecks(t *testing.T) {
 
 	})
 }
-
 
 func TestMain(m *testing.M) {
 	if viper.GetString("TEST") != "asdfadsfasdfasdf" {

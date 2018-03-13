@@ -1,4 +1,4 @@
-package sendemail
+package sendemail_test
 
 import (
 	"os"
@@ -7,6 +7,7 @@ import (
 
 	"github.com/richp10/golib/email/emailfactory"
 	"github.com/richp10/golib/email/smtpconnect"
+	"github.com/richp10/golib/email/sendemail"
 	"github.com/richp10/golib/env"
 
 	. "github.com/smartystreets/goconvey/convey"
@@ -43,12 +44,12 @@ func TestSMTPConnection(t *testing.T) {
 			_, _, err := emailfactory.Make(email)
 			So(err, ShouldBeNil)
 
-			err = Send("", to, "TEST EMAIL", email, nil)
+			err = sendemail.Send("", to, "TEST EMAIL", email, nil)
 			So(err, ShouldBeNil)
 
 			conn, err := smtpconnect.InitSMTP()
 			So(err, ShouldBeNil)
-			err = Send("", to, "TEST EMAIL 2", email, conn)
+			err = sendemail.Send("", to, "TEST EMAIL 2", email, conn)
 			So(err, ShouldBeNil)
 
 		})

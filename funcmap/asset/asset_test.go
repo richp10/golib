@@ -1,7 +1,7 @@
 // Copyright (c) 2016 Blue Jay - MIT License
 // Additional changes copyright Richard Phillips - MIT License
 
-package asset
+package asset_test
 
 import (
 	"bytes"
@@ -10,6 +10,7 @@ import (
 	"os/exec"
 	"strings"
 	"testing"
+	"github.com/richp10/golib/funcmap/asset"
 
 	log "github.com/sirupsen/logrus"
 
@@ -36,7 +37,7 @@ func init() {
 func TestKeysExist(t *testing.T) {
 	Convey("Should ensure key exists", t, func() {
 
-		config := Info{
+		config := asset.Info{
 			Folder: "testdata",
 		}
 
@@ -61,7 +62,7 @@ func TestKeysExist(t *testing.T) {
 func TestCSS(t *testing.T) {
 	Convey("Should ensures CSS parses correctly", t, func() {
 
-		config := Info{
+		config := asset.Info{
 			Folder: "testdata",
 		}
 
@@ -87,7 +88,7 @@ func TestCSS(t *testing.T) {
 func TestCSSInternet(t *testing.T) {
 	Convey("Should ensures CSS from internet parses correctly.", t, func() {
 
-		config := Info{
+		config := asset.Info{
 			Folder: "testdata",
 		}
 
@@ -113,7 +114,7 @@ func TestCSSInternet(t *testing.T) {
 func TestCSSMissing(t *testing.T) {
 	Convey("Should ensures file is missing error is thrown..", t, func() {
 
-		config := Info{
+		config := asset.Info{
 			Folder: "testdata2",
 		}
 
@@ -139,7 +140,7 @@ func TestCSSMissing(t *testing.T) {
 func TestJS(t *testing.T) {
 	Convey("Should ensures file is missing error is thrown..", t, func() {
 
-		config := Info{
+		config := asset.Info{
 			Folder: "testdata",
 		}
 
@@ -164,7 +165,7 @@ func TestJS(t *testing.T) {
 
 // TestJS ensures JS from internet parses correctly.
 func TestJSInternet(t *testing.T) {
-	config := Info{
+	config := asset.Info{
 		Folder: "testdata",
 	}
 
@@ -192,7 +193,7 @@ func TestJSInternet(t *testing.T) {
 
 // TestJSMissing ensures file is missing error is thrown.
 func TestJSMissing(t *testing.T) {
-	config := Info{
+	config := asset.Info{
 		Folder: "testdata2",
 	}
 
@@ -220,7 +221,7 @@ func TestJSMissing(t *testing.T) {
 
 // TestIMG ensures IMG parses correctly.
 func TestIMG(t *testing.T) {
-	config := Info{
+	config := asset.Info{
 		Folder: "testdata",
 	}
 
@@ -248,7 +249,7 @@ func TestIMG(t *testing.T) {
 
 // TestIMG ensures IMG from internet parses correctly.
 func TestIMGInternet(t *testing.T) {
-	config := Info{
+	config := asset.Info{
 		Folder: "testdata",
 	}
 
@@ -276,7 +277,7 @@ func TestIMGInternet(t *testing.T) {
 
 // TestIMGMissing ensures file is missing error is thrown.
 func TestIMGMissing(t *testing.T) {
-	config := Info{
+	config := asset.Info{
 		Folder: "testdata2",
 	}
 
@@ -304,7 +305,7 @@ func TestIMGMissing(t *testing.T) {
 
 // TTestBaseURI ensure URI is handled correctly.
 func TestBaseURI(t *testing.T) {
-	config := Info{
+	config := asset.Info{
 		Folder: "testdata",
 	}
 

@@ -1,4 +1,4 @@
-package emailfactory
+package emailfactory_test
 
 import (
 	"os"
@@ -6,11 +6,13 @@ import (
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
+	"github.com/richp10/golib/email/emailfactory"
 
 	"github.com/richp10/golib/env"
 
 	"github.com/matcornic/hermes"
 	"github.com/spf13/viper"
+
 )
 
 func TestSMTPConnection(t *testing.T) {
@@ -35,7 +37,7 @@ func TestSMTPConnection(t *testing.T) {
 			},
 		}
 
-		_, _, err := Make(email)
+		_, _, err := emailfactory.Make(email)
 		So(err, ShouldBeNil)
 
 		Convey("Should pass all MegaChecks", func() {

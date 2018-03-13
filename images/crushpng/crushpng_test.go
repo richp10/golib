@@ -1,4 +1,4 @@
-package crushpng
+package crushpng_test
 
 import (
 	"io/ioutil"
@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/richp10/golib/images/randomavatar"
+	"github.com/richp10/golib/images/crushpng"
 
 	"github.com/anthonynsimon/bild/imgio"
 	. "github.com/smartystreets/goconvey/convey"
@@ -31,7 +32,7 @@ func TestCrushPNG(t *testing.T) {
 		before := fi.Size()
 		file.Close()
 
-		img, err := PNGQuant(img)
+		img, err := crushpng.PNGQuant(img)
 		So(err, ShouldBeNil)
 
 		err = imgio.Save(file.Name(), img, imgio.PNGEncoder())

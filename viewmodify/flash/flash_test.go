@@ -4,6 +4,18 @@
 package flash_test
 
 import (
+	/*
+	"github.com/richp10/golib/view"
+	"github.com/gorilla/sessions"
+	"net/http/httptest"
+	"fmt"
+	"github.com/spf13/viper"
+	"os"
+	*/
+)
+
+/*
+import (
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -77,14 +89,6 @@ func TestModify(t *testing.T) {
 
 		// Set up the session cookie store
 		s.SetupConfig()
-
-		// Set up flight
-		/*
-		flight.StoreConfig(env.Info{
-			Session: s,
-			View:    *viewInfo,
-		})
-		*/
 
 		// Simulate a request
 		w := httptest.NewRecorder()
@@ -163,14 +167,6 @@ func TestModifyFail(t *testing.T) {
 
 	// Set up the session cookie store
 	s.SetupConfig()
-
-	// Set up flight
-	/*
-	flight.StoreConfig(env.Info{
-		Session: s,
-		View:    *viewInfo,
-	})
-	*/
 
 	// Simulate a request
 	w := httptest.NewRecorder()
@@ -251,14 +247,6 @@ TestFlashDefault(t *testing.T) {
 	// Set up the session cookie store
 	s.SetupConfig()
 
-	// Set up flight
-	/*
-	flight.StoreConfig(env.Info{
-		Session: s,
-		View:    *viewInfo,
-	})
-	*/
-
 	// Simulate a request
 	w := httptest.NewRecorder()
 	r, err := http.NewRequest("GET", "/", nil)
@@ -337,14 +325,6 @@ TestNonStringFlash(t *testing.T) {
 	// Set up the session cookie store
 	s.SetupConfig()
 
-	// Set up flight
-	/*
-	flight.StoreConfig(env.Info{
-		Session: s,
-		View:    *viewInfo,
-	})
-	*/
-
 	// Simulate a request
 	w := httptest.NewRecorder()
 	r, err := http.NewRequest("GET", "/", nil)
@@ -389,3 +369,4 @@ func TestMain(m *testing.M) {
 	code := m.Run()
 	os.Exit(code)
 }
+*/

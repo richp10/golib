@@ -1,10 +1,10 @@
-package circlecrop
+package circlecrop_test
 
 import (
 	"image"
 	"os/exec"
 	"testing"
-
+	"github.com/richp10/golib/images/circlecrop"
 	"github.com/richp10/golib/images/randomavatar"
 
 	. "github.com/smartystreets/goconvey/convey"
@@ -25,7 +25,7 @@ func TestCircleCrop(t *testing.T) {
 
 	Convey("Should be able to circlecrop an image withoug error", t, func() {
 
-		img = Go(img)
+		img = circlecrop.Go(img)
 		// Can't work out how to check this yet..
 
 		Convey("Should pass all MegaChecks", func() {

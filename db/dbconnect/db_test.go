@@ -1,4 +1,4 @@
-package dbconnect
+package dbconnect_test
 
 import (
 	"os/exec"
@@ -17,4 +17,3 @@ func TestMegaChecks(t *testing.T) {
 
 	})
 }
-

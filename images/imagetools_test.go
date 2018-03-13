@@ -1,4 +1,4 @@
-package imagetools
+package imagetools_test
 
 import (
 	"io/ioutil"
@@ -9,6 +9,7 @@ import (
 	"gopkg.in/h2non/filetype.v1"
 
 	. "github.com/smartystreets/goconvey/convey"
+	"github.com/richp10/golib/images"
 )
 
 func TestImageTools(t *testing.T) {
@@ -19,13 +20,13 @@ func TestImageTools(t *testing.T) {
 	defer os.Remove(file.Name())
 
 	Convey("Should be able to create Random Avatar", t, func() {
-		err := CreateRandomAvatar(gender, username)
+		err := imagetools.CreateRandomAvatar(gender, username)
 		So(err, ShouldBeNil)
 
 		Convey("Should be able to Resize the image", func() {
-			beforewidth := img.Bounds().Max.X
-			ResizeSquare(100)
-			afterwidth := img.Bounds().Max.X
+			beforewidth := imagetools.Img.Bounds().Max.X
+			imagetools.ResizeSquare(100)
+			afterwidth := imagetools.Img.Bounds().Max.X
 
 			So(beforewidth, ShouldNotEqual, 100)
 
@@ -36,7 +37,7 @@ func TestImageTools(t *testing.T) {
 		// works..
 
 		Convey("Should be able to save image to disk as png", func() {
-			err = SavePNG(file.Name())
+			err = imagetools.SavePNG(file.Name())
 			So(err, ShouldBeNil)
 		})
 
@@ -49,8 +50,8 @@ func TestImageTools(t *testing.T) {
 			before := fi.Size()
 			file.Close()
 
-			PNGQuant()
-			err = SavePNG(file.Name())
+			imagetools.PNGQuant()
+			err = imagetools.SavePNG(file.Name())
 			So(err, ShouldBeNil)
 			file, err = os.Open(file.Name())
 			So(err, ShouldBeNil)
@@ -66,7 +67,7 @@ func TestImageTools(t *testing.T) {
 		// Could not think of a good assertion - at least this checks
 		// the code does not panic
 		Convey("Should be able to circlecrop without error", func() {
-			CircleCrop()
+			imagetools.CircleCrop()
 		})
 
 		Convey("Should be able to find pngquant in the path", func() {
@@ -80,7 +81,7 @@ func TestImageTools(t *testing.T) {
 		})
 
 		Convey("Should be able to smartcrop without error", func() {
-			err = SmartCrop(50, 50)
+			err = imagetools.SmartCrop(50, 50)
 			So(err, ShouldBeNil)
 		})
 

@@ -77,11 +77,15 @@ func TestFlashSession(t *testing.T) {
 	f, ok := flashes[0].(flash.Info)
 
 	if f.Class != flash.Success {
-		t.Fatal("Flash class is: %v, should be: %v.", f.Class, flash.Success)
+		//t.Fatal("Flash class is: %v, should be: %v.", f.Class, flash.Success)
+		// TODO FIX THIS
+		t.Fatal("Flash class ", f.Class, flash.Success)
 	}
 
 	if f.Message != text {
-		t.Fatalf("Flash message is: %v, should be: %v", f.Message, text)
+		//t.Fatalf("Flash message is: %v, should be: %v", f.Message, text)
+		// TODO FIX THIS
+		t.Fatal("Flash class ", f.Class, flash.Success)
 	}
 
 	if !ok {

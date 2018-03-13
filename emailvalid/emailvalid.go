@@ -13,7 +13,7 @@ import (
 	"strings"
 )
 
-var emailRexp = regexp.MustCompile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$")
+var emailRexp = regexp.MustCompile(`^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$`)
 
 // Check checks the syntax and if valid and checks the bad domain list
 // does not do mailbox checking - an RP tweak

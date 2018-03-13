@@ -1,8 +1,9 @@
-package randomavatar
+package randomavatar_test
 
 import (
 	"os/exec"
 	"testing"
+	"github.com/richp10/golib/images/randomavatar"
 
 	. "github.com/smartystreets/goconvey/convey"
 )
@@ -13,11 +14,11 @@ func TestRandomAvatar(t *testing.T) {
 	username := "bob"
 
 	Convey("Create Random Male Avatar", t, func() {
-		_, err := Create(gender, username)
+		_, err := randomavatar.Create(gender, username)
 		So(err, ShouldBeNil)
 
 		Convey("Create Random Female Avatar", func() {
-			_, err := Create("Female", username)
+			_, err := randomavatar.Create("Female", username)
 			So(err, ShouldBeNil)
 
 		})

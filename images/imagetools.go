@@ -14,13 +14,13 @@ import (
 )
 
 var (
-	img image.Image
+	Img image.Image
 )
 
 /*
 func Load(filename string) {
 	var err error
-	img, err = imgio.Open(filename)
+	Img, err = imgio.Open(filename)
 	if err != nil {
 		panic(err)
 	}
@@ -28,7 +28,7 @@ func Load(filename string) {
 */
 
 func SavePNG(target string) error {
-	if err := imgio.Save(target, img, imgio.PNGEncoder()); err != nil {
+	if err := imgio.Save(target, Img, imgio.PNGEncoder()); err != nil {
 		return err
 	}
 	return nil
@@ -41,7 +41,7 @@ func SavePNGTemp() (file *os.File, err error) {
 		return nil, err
 	}
 
-	if err := imgio.Save(file.Name(), img, imgio.PNGEncoder()); err != nil {
+	if err := imgio.Save(file.Name(), Img, imgio.PNGEncoder()); err != nil {
 		return nil, err
 	}
 	return file, nil
@@ -50,7 +50,7 @@ func SavePNGTemp() (file *os.File, err error) {
 
 func PNGQuant() error {
 	var err error
-	img, err = crushpng.PNGQuant(img)
+	Img, err = crushpng.PNGQuant(Img)
 	if err != nil {
 		return err
 	}
@@ -58,12 +58,12 @@ func PNGQuant() error {
 }
 
 func CircleCrop() {
-	img = circlecrop.Go(img)
+	Img = circlecrop.Go(Img)
 }
 
 func CreateRandomAvatar(gender string, username string) error {
 	var err error
-	img, err = randomavatar.Create(gender, username)
+	Img, err = randomavatar.Create(gender, username)
 	if err != nil {
 		return err
 	}
@@ -72,7 +72,7 @@ func CreateRandomAvatar(gender string, username string) error {
 
 func SmartCrop(width int, height int) error {
 	var err error
-	img, err = smartcrop.Crop(img, width, height)
+	Img, err = smartcrop.Crop(Img, width, height)
 	if err != nil {
 		return err
 	}
@@ -81,17 +81,17 @@ func SmartCrop(width int, height int) error {
 
 // Resize to square
 func ResizeSquare(size int) {
-	img = transform.Resize(img, size, size, transform.Linear)
+	Img = transform.Resize(Img, size, size, transform.Linear)
 }
 
 func Resize(width int, height int) {
-	img = transform.Resize(img, width, height, transform.Linear)
+	Img = transform.Resize(Img, width, height, transform.Linear)
 }
 
 func Set(i image.Image) {
-	img = i
+	Img = i
 }
 
 func Get() image.Image {
-	return img
+	return Img
 }
