@@ -2,7 +2,7 @@
 // https://github.com/dewski/spatial/blob/master/point.go
 // Additional changes copyright Richard Phillips - MIT License
 
-package spatial
+package dbtype
 
 import (
 	"bytes"
@@ -39,7 +39,7 @@ func (p *Point) Scan(val interface{}) error {
 	case 1:
 		byteOrder = binary.LittleEndian
 	default:
-		return fmt.Errorf("Invalid byte order %d", wkbByteOrder)
+		return fmt.Errorf("invalid byte order %d", wkbByteOrder)
 	}
 
 	var wkbGeometryType uint64

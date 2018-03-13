@@ -2,7 +2,7 @@
 // https://github.com/dewski/spatial/blob/master/point.go
 // Additional changes copyright Richard Phillips - MIT License
 
-package spatial
+package dbtype
 
 import (
 	"bytes"
@@ -11,12 +11,12 @@ import (
 	"math"
 )
 
-func Decode(points string, precision int) []Point {
+func PointDecode(points string, precision int) []Point {
 	var lat, lng int64
 
 	factor := math.Pow10(precision)
 	input := bytes.NewBufferString(points)
-	path := []Point{}
+	var path []Point
 
 	for {
 		dlat, _ := decodeInt(input)
@@ -36,7 +36,7 @@ func Decode(points string, precision int) []Point {
 	}
 }
 
-func Encode(path []Point, precision int) string {
+func PointEncode(path []Point, precision int) string {
 	var prevLat, prevLng int64
 
 	factor := math.Pow10(precision)
