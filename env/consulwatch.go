@@ -9,7 +9,7 @@ import (
 	"github.com/armon/consul-api"
 )
 
-func ConsulWatch(nodename string, key string) {
+func ConsulWatch(nodename string, key string, schema string) {
 	// Get a new consul client
 	if key == "" {
 		key = nodename
@@ -35,9 +35,9 @@ func ConsulWatch(nodename string, key string) {
 				newip := node.Node.Address
 
 				if ip != newip {
-					// IP has changed
-					println("New IP for " + nodename + " is " + newip)
-					viper.Set(key, newip)
+					// First set the requested environment setting using the ip and optional schema
+					println("SET KEY: "+key+" TO: " + schema+newip)
+					viper.Set(key, schema+newip)
 					ip = newip
 					// Create a flag that we can use to check whether
 					// the node IP address has been changed
