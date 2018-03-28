@@ -36,7 +36,7 @@ func ConsulWatch(nodename string, key string, schema string) {
 
 				if ip != newip {
 					// First set the requested environment setting using the ip and optional schema
-					println("SET KEY: "+key+" TO: " + schema+newip)
+					log.Info("SET KEY: "+key+" TO: " + schema+newip)
 					viper.Set(key, schema+newip)
 					ip = newip
 					// Create a flag that we can use to check whether
