@@ -41,15 +41,15 @@ func TestSMTPConnection(t *testing.T) {
 
 		Convey("Should send test email using supplied connection", func() {
 			to := "richpt10@gmail.com"
-			_, _, err := emailfactory.Make(email)
+			_, _, err := emailfactory.Make(email, "")
 			So(err, ShouldBeNil)
 
-			err = sendemail.Send("", to, "TEST EMAIL", email, nil)
+			err = sendemail.Send("", to, "TEST EMAIL", email, nil, "")
 			So(err, ShouldBeNil)
 
 			conn, err := smtpconnect.InitSMTP()
 			So(err, ShouldBeNil)
-			err = sendemail.Send("", to, "TEST EMAIL 2", email, conn)
+			err = sendemail.Send("", to, "TEST EMAIL 2", email, conn, "")
 			So(err, ShouldBeNil)
 
 		})

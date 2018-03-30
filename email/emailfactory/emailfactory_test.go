@@ -37,7 +37,7 @@ func TestSMTPConnection(t *testing.T) {
 			},
 		}
 
-		_, _, err := emailfactory.Make(email)
+		_, _, err := emailfactory.Make(email, "")
 		So(err, ShouldBeNil)
 
 		Convey("Should pass all MegaChecks", func() {

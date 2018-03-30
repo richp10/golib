@@ -8,7 +8,12 @@ import (
 	"github.com/spf13/viper"
 )
 
-func Make(email hermes.Email) (body string, text string, err error) {
+func Make(email hermes.Email, logo string) (body string, text string, err error) {
+
+	if logo == "" {
+		logo = viper.GetString("EmailLogo")
+	}
+
 	h := hermes.Hermes{
 		// Optional Theme
 		// Theme: new(Default)
@@ -16,7 +21,7 @@ func Make(email hermes.Email) (body string, text string, err error) {
 			// Header & footer of e-mails
 			Name:      viper.GetString("EmailProjName"),
 			Link:      viper.GetString("EmailLink"),
-			Logo:      viper.GetString("EmailLogo"),
+			Logo:      logo,
 			Copyright: viper.GetString("EmailCopyright"),
 		},
 	}

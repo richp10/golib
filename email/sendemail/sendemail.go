@@ -10,7 +10,7 @@ import (
 )
 
 // Send email using hermes Email struct.
-func Send(from string, to string, subject string, body hermes.Email, conn mail.SendCloser) error {
+func Send(from string, to string, subject string, body hermes.Email, conn mail.SendCloser, logo string) error {
 	var err error
 
 	// If connection has not been set, create it now..
@@ -30,7 +30,7 @@ func Send(from string, to string, subject string, body hermes.Email, conn mail.S
 	}
 
 	// Convert hermes email into html and plain text..
-	emailBody, emailText, _ := emailfactory.Make(body)
+	emailBody, emailText, _ := emailfactory.Make(body, logo)
 
 	m := mail.NewMessage()
 	m.SetHeader("From", from)
