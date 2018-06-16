@@ -1,6 +1,6 @@
 [[constraint]]
     name = "github.com/richp10/dat"
-    version="v2.0.1"
+    version="v2.0.2"
 [[constraint]]
     name = "github.com/smartystreets/goconvey"
     version = "1.6.3"
