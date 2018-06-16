@@ -1,6 +1,6 @@
 [[constraint]]
     name = "github.com/richp10/dat"
-    version="v2.0.0"
+    version="v2.0.1"
 [[constraint]]
     name = "github.com/smartystreets/goconvey"
     version = "1.6.3"
@@ -33,7 +33,7 @@
      name = "github.com/armon/consul-api"
 [[constraint]]
      name = "github.com/satori/go.uuid"
-     version = "v1.1.0"
+     revision = "36e9d2ebbde5e3f13ab2e25625fd453271d6522e"
 [[constraint]]
      name = "github.com/lib/pq"
 [[constraint]]

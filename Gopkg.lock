@@ -32,6 +32,12 @@
   revision = "eb2c6b5be1b66bab83016e0b05f01b8d5496ffbd"
 
 [[projects]]
+  name = "github.com/asaskevich/govalidator"
+  packages = ["."]
+  revision = "ccb8e960c48f04d6935e72476ae4a51028f9e22f"
+  version = "v9"
+
+[[projects]]
   name = "github.com/cenkalti/backoff"
   packages = ["."]
   revision = "61153c768f31ee5f130071d08fc82b85208528de"
@@ -358,6 +364,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "98a187217b861415210ec41ffd9ed368518e8ff0b8080de2bf44b0ead16fe52f"
+  inputs-digest = "8bbfadf330d30b9a4ad5e280836b27bc8fbb497f33437c2b0cd9275c4de33a52"
   solver-name = "gps-cdcl"
   solver-version = 1
