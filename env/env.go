@@ -10,7 +10,7 @@ import (
 )
 
 // RegisterServices sets up all the web components.
-func Load() {
+func Load( defaultPath string ) {
 	// Make SURE we use same location as executable for the config file
 	ex, err := os.Executable()
 	if err != nil {
@@ -24,6 +24,11 @@ func Load() {
 	viper.AutomaticEnv()
 	viper.AddConfigPath(filepath.Dir(ex)) // look in executable directory
 	viper.AddConfigPath(".")              // alternatively, the Working directory
+
+	if defaultPath !="" {
+		viper.AddConfigPath(defaultPath) // search the default path
+	}
+
 	// These are used by tests, which run in sub-directory
 	// so need to look for env.json in higher directory
 	viper.AddConfigPath("..\\..\\..\\..\\..\\")
@@ -35,6 +40,8 @@ func Load() {
 	// Note we do not panic if this did not exist, we might be able to
 	// get all our configuration values from environment variables.
 	if err == nil {
+		log.Info("Config File Used: "+viper.ConfigFileUsed())
+
 		// If file does exist, set up a watcher
 		viper.WatchConfig()
 		viper.OnConfigChange(func(e fsnotify.Event) {
