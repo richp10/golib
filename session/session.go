@@ -26,7 +26,7 @@ type Info struct {
 func (i *Info) SetupConfig() error {
 	// Check for AuthKey
 	if len(i.AuthKey) == 0 {
-		return errors.New("session AuthKey is missing and is required as a good practice.")
+		return errors.New("session AuthKey is missing and is required as a good practice")
 	}
 
 	// Decode authentication key

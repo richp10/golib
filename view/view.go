@@ -126,7 +126,7 @@ func (v *ViewInfo) Render(w http.ResponseWriter, r *http.Request) error {
 	for _, fn := range sc {
 		fn(w, r, v)
 	}
-	//println("ABOUT TO DISPLAY")
+	// println("ABOUT TO DISPLAY")
 	// Display the content to the screen
 	err := tc.Funcs(pc).ExecuteTemplate(w, baseTemplate+"."+v.Extension, v.Vars)
 

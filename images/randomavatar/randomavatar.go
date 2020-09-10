@@ -13,11 +13,11 @@ func Create(gender string, username string) (image.Image, error) {
 	var err error
 
 	if strings.ToLower(gender) == "male" {
-		img, err = govatar.GenerateFromUsername(govatar.MALE, username)
+		img, err = govatar.GenerateForUsername(govatar.MALE, username)
 	} else if strings.ToLower(gender) == "female" {
-		img, err = govatar.GenerateFromUsername(govatar.FEMALE, username)
+		img, err = govatar.GenerateForUsername(govatar.FEMALE, username)
 	} else {
-		img, err = govatar.GenerateFromUsername(govatar.FEMALE, username)
+		img, err = govatar.GenerateForUsername(govatar.FEMALE, username)
 	}
 	if err != nil {
 		return nil, err

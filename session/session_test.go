@@ -133,7 +133,7 @@ func TestNotSecure(t *testing.T) {
 
 	s := session.Info{
 		AuthKey: "PzCh6FNAB7/jhmlUQ0+25sjJ+WgcJeKR2bAOtnh9UnfVN+WJSBvY/YC80Rs+rbMtwfmSP4FUSxKPtpYKzKFqFA==",
-		//EncryptKey: "3oTKCcKjDHMUlV+qur2Ve664SPpSuviyGQ/UqnroUD8=",
+		// EncryptKey: "3oTKCcKjDHMUlV+qur2Ve664SPpSuviyGQ/UqnroUD8=",
 		CSRFKey: "xULAGF5FcWvqHsXaovNFJYfgCt6pedRPROqNvsZjU18=",
 		Name:    "sess",
 		Options: options,
@@ -179,7 +179,7 @@ func TestNoAuthKey(t *testing.T) {
 	}
 
 	s := session.Info{
-		//AuthKey:    "PzCh6FNAB7/jhmlUQ0+25sjJ+WgcJeKR2bAOtnh9UnfVN+WJSBvY/YC80Rs+rbMtwfmSP4FUSxKPtpYKzKFqFA==",
+		// AuthKey:    "PzCh6FNAB7/jhmlUQ0+25sjJ+WgcJeKR2bAOtnh9UnfVN+WJSBvY/YC80Rs+rbMtwfmSP4FUSxKPtpYKzKFqFA==",
 		EncryptKey: "3oTKCcKjDHMUlV+qur2Ve664SPpSuviyGQ/UqnroUD8=",
 		CSRFKey:    "xULAGF5FcWvqHsXaovNFJYfgCt6pedRPROqNvsZjU18=",
 		Name:       "sess",
@@ -205,7 +205,7 @@ func TestAuthKeyBad(t *testing.T) {
 
 	s := session.Info{
 		AuthKey: "bad auth key",
-		//AuthKey:    "PzCh6FNAB7/jhmlUQ0+25sjJ+WgcJeKR2bAOtnh9UnfVN+WJSBvY/YC80Rs+rbMtwfmSP4FUSxKPtpYKzKFqFA==",
+		// AuthKey:    "PzCh6FNAB7/jhmlUQ0+25sjJ+WgcJeKR2bAOtnh9UnfVN+WJSBvY/YC80Rs+rbMtwfmSP4FUSxKPtpYKzKFqFA==",
 		EncryptKey: "3oTKCcKjDHMUlV+qur2Ve664SPpSuviyGQ/UqnroUD8=",
 		CSRFKey:    "xULAGF5FcWvqHsXaovNFJYfgCt6pedRPROqNvsZjU18=",
 		Name:       "sess",
@@ -232,7 +232,7 @@ func TestBadEncryptionKey(t *testing.T) {
 	s := session.Info{
 		AuthKey:    "PzCh6FNAB7/jhmlUQ0+25sjJ+WgcJeKR2bAOtnh9UnfVN+WJSBvY/YC80Rs+rbMtwfmSP4FUSxKPtpYKzKFqFA==",
 		EncryptKey: "bad key",
-		//EncryptKey: "3oTKCcKjDHMUlV+qur2Ve664SPpSuviyGQ/UqnroUD8=",
+		// EncryptKey: "3oTKCcKjDHMUlV+qur2Ve664SPpSuviyGQ/UqnroUD8=",
 		CSRFKey: "xULAGF5FcWvqHsXaovNFJYfgCt6pedRPROqNvsZjU18=",
 		Name:    "sess",
 		Options: options,

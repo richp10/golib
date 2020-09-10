@@ -1,15 +1,16 @@
 package sendemail
 
 import (
+	"math/rand"
+	"strconv"
+	"time"
+
+	"github.com/go-mail/mail"
+	"github.com/matcornic/hermes/v2"
 	"github.com/richp10/golib/email/emailfactory"
 	"github.com/richp10/golib/email/smtpconnect"
 	log "github.com/sirupsen/logrus"
-	"github.com/go-mail/mail"
-	"github.com/matcornic/hermes"
 	"github.com/spf13/viper"
-	"math/rand"
-	"time"
-	"strconv"
 )
 
 // Send email using hermes Email struct.

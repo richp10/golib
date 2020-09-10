@@ -6,11 +6,11 @@ package dbtype_test
 
 import (
 	"encoding/json"
+	"testing"
+
 	"github.com/richp10/golib/dbtype"
 
 	_ "github.com/lib/pq"
-
-	"testing"
 
 	"github.com/stretchr/testify/assert"
 )

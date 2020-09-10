@@ -6,8 +6,8 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/richp10/golib/images/randomavatar"
 	"github.com/richp10/golib/images/crushpng"
+	"github.com/richp10/golib/images/randomavatar"
 
 	"github.com/anthonynsimon/bild/imgio"
 	. "github.com/smartystreets/goconvey/convey"
@@ -56,4 +56,3 @@ func TestCrushPNG(t *testing.T) {
 	})
 
 }
-

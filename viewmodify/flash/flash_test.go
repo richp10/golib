@@ -3,17 +3,6 @@
 
 package flash_test
 
-import (
-	/*
-	"github.com/richp10/golib/view"
-	"github.com/gorilla/sessions"
-	"net/http/httptest"
-	"fmt"
-	"github.com/spf13/viper"
-	"os"
-	*/
-)
-
 /*
 import (
 	"fmt"

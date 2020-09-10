@@ -4,9 +4,9 @@
 package dbtype
 
 import (
-	"fmt"
 	"database/sql/driver"
 	"errors"
+	"fmt"
 	"net"
 )
 
@@ -75,7 +75,7 @@ func (i *Inet) Scan(value interface{}) error {
 // Value implements the driver Valuer interface. Note if i.Valid is false
 // or i.IP is nil the database column value will be set to NULL.
 func (i Inet) Value() (driver.Value, error) {
-	if ! i.Valid || i.Inet == nil {
+	if !i.Valid || i.Inet == nil {
 		return nil, nil
 	}
 	return i.Inet.String(), nil

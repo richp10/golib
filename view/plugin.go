@@ -9,32 +9,32 @@ import (
 )
 
 // extend safely reads the extend list.
-func (c *ViewInfo) extend() template.FuncMap {
-	c.extendMutex.RLock()
-	list := c.extendList
-	c.extendMutex.RUnlock()
+func (v *ViewInfo) extend() template.FuncMap {
+	v.extendMutex.RLock()
+	list := v.extendList
+	v.extendMutex.RUnlock()
 
 	return list
 }
 
 // modify safely reads the modify list.
-func (c *ViewInfo) modify() []ModifyFunc {
+func (v *ViewInfo) modify() []ModifyFunc {
 	// Get the setter collection
-	c.modifyMutex.RLock()
-	list := c.modifyList
-	c.modifyMutex.RUnlock()
+	v.modifyMutex.RLock()
+	list := v.modifyList
+	v.modifyMutex.RUnlock()
 
 	return list
 }
 
 // SetTemplates will set the root and child templates.
-func (c *ViewInfo) SetTemplates(rootTemp string, childTemps []string) {
-	c.mutex.Lock()
-	c.templateCollection = make(map[string]*template.Template)
-	c.mutex.Unlock()
+func (v *ViewInfo) SetTemplates(rootTemp string, childTemps []string) {
+	v.mutex.Lock()
+	v.templateCollection = make(map[string]*template.Template)
+	v.mutex.Unlock()
 
-	c.rootTemplate = rootTemp
-	c.childTemplates = childTemps
+	v.rootTemplate = rootTemp
+	v.childTemplates = childTemps
 }
 
 // ModifyFunc can modify the view before rendering.
@@ -42,16 +42,16 @@ type ModifyFunc func(http.ResponseWriter, *http.Request, *ViewInfo)
 
 // SetModifiers will set the modifiers for the View that run
 // before rendering.
-func (c *ViewInfo) SetModifiers(fn ...ModifyFunc) {
-	c.modifyMutex.Lock()
-	c.modifyList = fn
-	c.modifyMutex.Unlock()
+func (v *ViewInfo) SetModifiers(fn ...ModifyFunc) {
+	v.modifyMutex.Lock()
+	v.modifyList = fn
+	v.modifyMutex.Unlock()
 }
 
 // SetFuncMaps will combine all template.FuncMaps into one map and then set the
 // them for each template.
 // If a func already exists, it is rewritten without a warning.
-func (c *ViewInfo) SetFuncMaps(fms ...template.FuncMap) {
+func (v *ViewInfo) SetFuncMaps(fms ...template.FuncMap) {
 	// Final FuncMap
 	fm := make(template.FuncMap)
 
@@ -64,7 +64,7 @@ func (c *ViewInfo) SetFuncMaps(fms ...template.FuncMap) {
 	}
 
 	// Load the plugins
-	c.extendMutex.Lock()
-	c.extendList = fm
-	c.extendMutex.Unlock()
+	v.extendMutex.Lock()
+	v.extendList = fm
+	v.extendMutex.Unlock()
 }

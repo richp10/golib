@@ -119,7 +119,9 @@ func checkMailbox(ctx context.Context, fromEmail, checkEmail string, mxList []*n
 	resChan := make(chan checkRv, 1)
 
 	go func() {
+		//goland:noinspection GoUnhandledErrorResult
 		defer c.Close()
+		//goland:noinspection GoUnhandledErrorResult
 		defer c.Quit() // defer ist LIFO
 		// HELO
 		err = c.Hello(hostname(fromEmail))

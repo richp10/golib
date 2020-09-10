@@ -28,7 +28,7 @@ func ConsulWatch(nodename string, key string, schema string) {
 		go func() {
 			ip := ""
 			for {
-				//println("Check: " + nodename)
+				// println("Check: " + nodename)
 				node, _, err := consul.Catalog().Node(nodename, nil)
 				if err != nil {
 					time.Sleep(time.Second * 5) // delay after fail..
@@ -38,7 +38,7 @@ func ConsulWatch(nodename string, key string, schema string) {
 
 				if ip != newip {
 					// First set the requested environment setting using the ip and optional schema
-					log.Info("SET KEY: "+key+" TO: " + schema+newip)
+					log.Info("SET KEY: " + key + " TO: " + schema + newip)
 					viper.Set(key, schema+newip)
 					ip = newip
 					// Create a flag that we can use to check whether

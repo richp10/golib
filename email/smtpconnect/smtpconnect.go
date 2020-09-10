@@ -20,12 +20,12 @@ func InitSMTP() (mail.SendCloser, error) {
 
 	conn, err := dialer.Dial()
 	if err != nil {
-		log.Info("SMTPPort="+strconv.Itoa(viper.GetInt("SMTPPort")))
-		log.Info("SMTPHost="+viper.GetString("SMTPHost"))
-		log.Info("SMTPUser="+viper.GetString("SMTPUser"))
-		log.Info("SMTPUser="+viper.GetString("SMTPPass"))
+		log.Info("SMTPPort=" + strconv.Itoa(viper.GetInt("SMTPPort")))
+		log.Info("SMTPHost=" + viper.GetString("SMTPHost"))
+		log.Info("SMTPUser=" + viper.GetString("SMTPUser"))
+		log.Info("SMTPUser=" + viper.GetString("SMTPPass"))
 
-		log.Error("smtpconnect.InitSMTP: "+err.Error())
+		log.Error("smtpconnect.InitSMTP: " + err.Error())
 		return nil, err
 	}
 	return conn, nil

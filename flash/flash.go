@@ -46,13 +46,13 @@ func init() {
 // SendFlashes allows retrieval of flash messages for using with Ajax.
 func SendFlashes(w http.ResponseWriter, r *http.Request, sess Session) {
 	flashes := PeekFlashes(w, r, sess)
-	sess.Save(r, w)
+	_ = sess.Save(r, w) // This has an unhandled error
 
 	// There is no way for marshal to fail since it's a static type
 	js, _ := json.Marshal(flashes)
 
 	w.Header().Set("Content-Type", "application/json")
-	w.Write(js)
+	_, _ = w.Write(js) // This has an unhandled error
 }
 
 // PeekFlashes returns the flashes without destroying them.

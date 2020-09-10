@@ -6,15 +6,15 @@ import (
 	"testing"
 
 	"github.com/richp10/golib/email/emailfactory"
-	"github.com/richp10/golib/email/smtpconnect"
 	"github.com/richp10/golib/email/sendemail"
+	"github.com/richp10/golib/email/smtpconnect"
 	"github.com/richp10/golib/env"
 
 	. "github.com/smartystreets/goconvey/convey"
 
 	"github.com/spf13/viper"
 
-	"github.com/matcornic/hermes"
+	"github.com/matcornic/hermes/v2"
 )
 
 func TestSMTPConnection(t *testing.T) {
@@ -75,10 +75,9 @@ func TestMegaChecks(t *testing.T) {
 	})
 }
 
-
 func TestMain(m *testing.M) {
 	if viper.GetString("TEST") != "asdfadsfasdfasdf" {
-		env.Load()
+		env.Load("")
 	}
 	m.Run()
 	code := m.Run()

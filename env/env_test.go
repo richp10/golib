@@ -1,6 +1,5 @@
 package env_test
 
-
 import (
 	"os/exec"
 	"testing"
@@ -18,4 +17,3 @@ func TestMegaChecks(t *testing.T) {
 
 	})
 }
-

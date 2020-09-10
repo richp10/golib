@@ -7,8 +7,9 @@ package dbtype
 import (
 	"bytes"
 	"io"
-	log "github.com/sirupsen/logrus"
 	"math"
+
+	log "github.com/sirupsen/logrus"
 )
 
 func PointDecode(points string, precision int) []Point {
@@ -81,6 +82,7 @@ func decodeInt(r io.ByteReader) (int64, error) {
 	}
 }
 
+// Note this has an unhandled error todo fix
 func encodeInt(v int64, w io.ByteWriter) {
 	if v < 0 {
 		v = ^(v << 1)
@@ -89,9 +91,9 @@ func encodeInt(v int64, w io.ByteWriter) {
 	}
 
 	for v >= 0x20 {
-		w.WriteByte((0x20 | (byte(v) & 0x1f)) + 63)
+		_ = w.WriteByte((0x20 | (byte(v) & 0x1f)) + 63)
 		v >>= 5
 	}
 
-	w.WriteByte(byte(v) + 63)
+	_ = w.WriteByte(byte(v) + 63)
 }

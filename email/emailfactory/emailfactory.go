@@ -3,7 +3,7 @@
 package emailfactory
 
 import (
-	"github.com/matcornic/hermes"
+	"github.com/matcornic/hermes/v2"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )

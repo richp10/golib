@@ -4,9 +4,10 @@ import (
 	"os"
 	"os/exec"
 	"testing"
+
+	"github.com/richp10/golib/email/smtpconnect"
 	"github.com/richp10/golib/env"
 	"github.com/spf13/viper"
-	"github.com/richp10/golib/email/smtpconnect"
 
 	. "github.com/smartystreets/goconvey/convey"
 )

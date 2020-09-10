@@ -6,10 +6,8 @@ import (
 	"os/exec"
 	"testing"
 
-	"gopkg.in/h2non/filetype.v1"
-
-	. "github.com/smartystreets/goconvey/convey"
 	"github.com/richp10/golib/images"
+	. "github.com/smartystreets/goconvey/convey"
 )
 
 func TestImageTools(t *testing.T) {
@@ -17,6 +15,7 @@ func TestImageTools(t *testing.T) {
 	gender := "Male"
 	username := "bob"
 	file, _ := ioutil.TempFile(os.TempDir(), "prefix")
+	//goland:noinspection GoUnhandledErrorResult
 	defer os.Remove(file.Name())
 
 	Convey("Should be able to create Random Avatar", t, func() {
@@ -48,9 +47,11 @@ func TestImageTools(t *testing.T) {
 			fi, err := file.Stat()
 			So(err, ShouldBeNil)
 			before := fi.Size()
-			file.Close()
+			err = file.Close()
+			So(err, ShouldBeNil)
 
-			imagetools.PNGQuant()
+			err = imagetools.PNGQuant()
+			So(err, ShouldBeNil)
 			err = imagetools.SavePNG(file.Name())
 			So(err, ShouldBeNil)
 			file, err = os.Open(file.Name())
@@ -58,7 +59,8 @@ func TestImageTools(t *testing.T) {
 			fi, err = file.Stat()
 			So(err, ShouldBeNil)
 			after := fi.Size()
-			file.Close()
+			err = file.Close()
+			So(err, ShouldBeNil)
 
 			compare := before == after
 			So(compare, ShouldBeFalse)

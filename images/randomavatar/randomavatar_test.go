@@ -3,6 +3,7 @@ package randomavatar_test
 import (
 	"os/exec"
 	"testing"
+
 	"github.com/richp10/golib/images/randomavatar"
 
 	. "github.com/smartystreets/goconvey/convey"

@@ -72,7 +72,7 @@ func TestModify(t *testing.T) {
 	})
 
 	// Configure the middleware
-	cs := csrf.Protect([]byte(key),
+	cs := csrf.Protect(key,
 		csrf.ErrorHandler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			t.Fatal("invalidHandler should not be called.")
 		})),
@@ -142,7 +142,7 @@ func TestModifyFail(t *testing.T) {
 	})
 
 	// Configure the middleware
-	cs := csrf.Protect([]byte(key),
+	cs := csrf.Protect(key,
 		csrf.ErrorHandler(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			t.Fatal("invalidHandler should not be called.")
 		})),

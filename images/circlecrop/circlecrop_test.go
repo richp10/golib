@@ -4,11 +4,11 @@ import (
 	"image"
 	"os/exec"
 	"testing"
+
 	"github.com/richp10/golib/images/circlecrop"
 	"github.com/richp10/golib/images/randomavatar"
 
 	. "github.com/smartystreets/goconvey/convey"
-
 )
 
 var (
@@ -37,4 +37,3 @@ func TestCircleCrop(t *testing.T) {
 	})
 
 }
-

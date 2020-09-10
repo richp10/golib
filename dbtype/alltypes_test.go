@@ -3,6 +3,7 @@ package dbtype_test
 import (
 	"os/exec"
 	"testing"
+
 	. "github.com/smartystreets/goconvey/convey"
 )
 
